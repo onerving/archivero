@@ -1,0 +1,30 @@
+<div class="ui vertical stripe segment">
+    <div class="ui grey horizontal divider header">
+        Documentos disponibles
+    </div>
+    <div class="ui container">
+        <div class="ui three link stackable cards" >
+            <% @documents.each do |document| %>
+                <div class="card" >
+                    <div class="content">
+                        <%= link_to document.name, document_path(document), class:'header' %>
+                    <div class="description"><%= document.description %></div>
+                    </div>
+
+                    <div class='content'>
+                        <%= link_to document.attachment.url, class:"right floated" do %>
+                            <i class="cloud download icon"></i>
+                            Descargar
+                        <% end %>
+
+                        <%= link_to document_path(document) do%>
+                            <i class="write icon"></i>
+                            Comentar
+                        <% end %>
+                    </div>
+                </div>
+
+            <% end %>
+        </div>
+    </div>
+</div>

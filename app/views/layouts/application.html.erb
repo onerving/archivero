@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Archivero</title>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+        <%= csrf_meta_tags %>
+    </head>
+    <body class="pushable">
+        <!-- Cuerpo de la aplicacion -->
+        <div class="pusher">
+
+            <div class="ui vertical stripe center aligned segment">
+                <div class="ui main text left aligned container">
+                    <%= link_to  documents_path, class:"ui huge header" do %>
+                        Archivero
+                        <div class="sub header"> Laboratorio de Multimedia e Internet </div>
+                    <% end %>
+
+                    <% if current_page?(documents_path) %>
+                        <%=link_to new_document_path, class:'ui blue labeled icon button' do%>
+                            <i class="cloud upload icon"></i>
+                            Sube un nuevo archivo
+                        <% end %>
+                    <% else %>
+                        <%= link_to documents_path, class:'ui grey basic labeled icon button' do%>
+                            <i class="chevron left icon"></i>
+                            Regresar
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+
+            <div class="appbody">
+                <%= yield %>
+            </div>
+
+            <div class="ui inverted vertical footer segment">
+                <div class="ui container">
+                    <div class="ui section divider"> </div>
+                    Hecho en México, todos los derechos reservados 2016. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica. De otra forma requiere permiso previo por escrito de la institución. Sitio web administrado por: Laboratorio de Multimedia e Internet, UNAM.
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

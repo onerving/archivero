@@ -1,0 +1,56 @@
+<div class="ui vertical stripe segment">
+    <div class="ui grid container">
+        <!-- Documento actual -->
+        <div class="twelve wide column">
+            <div class="ui raised segment">
+                <div class="ui padded segment">
+                    <div class="ui equal width grid">
+                        <div class="column">
+                            <div class="ui text container">
+
+                                <h2 class="ui header">
+                                    <%=@document.name %>
+                                    <div class="sub header">Subido por <%=@document.uploader_name%></div>
+                                </h2>
+
+                                <%= link_to @document.attachment.url, class:"ui blue right labeled icon button" do %>
+                                    <i class="cloud download icon"></i>
+                                    Descargar
+                                <% end %>
+                            </div>
+                        </div>
+
+                        <div class="column">
+                            <div class="ui left aligned container">
+                                <p><b>Descripción: </b><%=@document.description %></p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="ui fluid card">
+                    <div class="content">
+                        <h3 class="ui header">Vista previa</h3>
+                    </div>
+                    <div class="image">
+                        <img class="ui fluid bordered rounded image" src="<%= @document.attachment.thumb %>">
+                    </div>
+                </div>
+
+            </div>
+            <%= link_to document_path(@document), class: "ui mini red labeled icon button", method: :delete do%>
+                <i class="warning icon"></i>
+                Borrar articulo
+            <% end %>
+        </div>
+        <!-- Barra lateral con los demas archivos -->
+        <div class="four wide column">
+            <div class="ui vertical menu">
+                <div class="header item">Otros documentos</div>
+                <% @documents.each do |document| %>
+                    <%= link_to document.name, document_path(document), class:'item'%>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>
