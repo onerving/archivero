@@ -1,0 +1,19 @@
+<%= form_for [@document, @comment], html: {class: 'ui reply form'} do |f| %>
+    <div class="three fields">
+        <div class="field">
+            <%= f.label :author_name, "Tu nombre", class: 'label' %>
+            <%= f.text_field :author_name, class: 'field', placeholder: "Alan Turing" %>
+        </div>
+        <div class="field">
+            <%= f.label :email, "Tu correo", class: 'label' %>
+            <%= f.text_field :email, class: 'field', placeholder: "correo@ejemplo.com" %>
+        </div>
+    </div>
+
+    <div class="field">
+        <%= f.label :body, "Tu comentario", class: 'label' %>
+        <%= f.text_area :body, class: 'field', placeholder: "Añade tu opinion acerca de este archivo" %>
+    </div>
+
+    <%= f.submit "Publicar comentario", class: "ui small positive button" %>
+<% end %>

@@ -24,6 +24,8 @@ class DocumentsController < ApplicationController
   def show
     @document = Document.find(params[:id])
     @documents = Document.all
+    @comment = Comment.new
+    @comment.document_id = @document.id
   end
 
   def destroy

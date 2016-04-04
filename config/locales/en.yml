@@ -20,4 +20,6 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+    errors:
+        messages:
+            extension_whitelist_error: "Lo siento, no puedes subir archivos tipo %{extension}. Solo puedes subir archivos con las siguientes extensiones: %{allowed_types}"

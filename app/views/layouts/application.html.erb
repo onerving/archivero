@@ -17,7 +17,7 @@
                         <div class="sub header"> Laboratorio de Multimedia e Internet </div>
                     <% end %>
 
-                    <% if current_page?(documents_path) %>
+                    <% if current_page?(documents_path) or current_page?(root_path) %>
                         <%=link_to new_document_path, class:'ui blue labeled icon button' do%>
                             <i class="cloud upload icon"></i>
                             Sube un nuevo archivo

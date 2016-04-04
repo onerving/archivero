@@ -28,6 +28,7 @@
 
                     </div>
                 </div>
+                <!-- Vista previa -->
                 <div class="ui fluid card">
                     <div class="content">
                         <h3 class="ui header">Vista previa</h3>
@@ -36,8 +37,28 @@
                         <img class="ui fluid bordered rounded image" src="<%= @document.attachment.thumb %>">
                     </div>
                 </div>
+                <!-- Seccion de comentarios -->
+                <div class="ui raised segment">
+                    <div class="ui comments">
+                        <% if @document.comments.size.zero? %>
+                            <h3 class="ui dividing header">Aún no hay ningún comentario. Añade el tuyo!</h3>
+                        <% else %>
+                            <h3 class="ui dividing header">Comentarios (<%= @document.comments.size %>)</h3>
+                        <% end %>
+                        <%= render partial: "documents/comment", collection: @document.comments %>
+                    </div>
+                </div>
+
+                <div class="ui raised segment">
+                    <div class="ui comments">
+                        <%= render partial: "comments/form" %>
+                    </div>
+                </div>
+                
 
             </div>
+
+            <!-- Boton para borrar el documento -->
             <%= link_to document_path(@document), class: "ui mini red labeled icon button", method: :delete do%>
                 <i class="warning icon"></i>
                 Borrar articulo
