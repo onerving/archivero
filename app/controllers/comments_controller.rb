@@ -1,13 +1,17 @@
 class CommentsController < ApplicationController
   def create
-    @comment = Comment.new(comment_params)
-    @comment.document_id = params[:document_id]
+    @document = Document.find(params[:document_id])
+    @comment = @document.comments.create(comment_params)
 
-    @comment.save
-
-    redirect_to document_path(@comment.document)
+    if @comment.save
+      redirect_to document_path(@document, anchor:  "comments")
+    else
+      @documents = Document.all
+      render "documents/show"
+    end
   end
 
+  private 
   def comment_params
     params.require(:comment).permit(:author_name, :email, :body)
   end
