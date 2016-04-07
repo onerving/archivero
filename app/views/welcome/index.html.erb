@@ -1,0 +1,28 @@
+<div class="ui vertical stripe segment">
+    <div class='ui very padded  container'>
+        <%= image_tag 'manta.png', class: 'ui flex image' %>
+    </div>
+</div>
+<!-- Información de votación -->
+<div class="ui vertical stripe segment">
+    <div class="ui text container">
+        <div class="ui segment">
+            <p>
+            El voto se podrá ejercer vía Internet en la página <%= link_to 'jornadaelectoral.unam.mx', "http://www.jornadaelectoral.unam.mx "%> Los profesores utilizarán el Número de Identificación Personal (NIP) del Sistema Integral de Administración Escolar (SIAE) <%= link_to "dgae-siae.unam.mx", "http://www.dgae-siae.unam.mx" %> que usan para su función docente, y/o con el cual también entran a la Oficina Virtual de la Dirección General de Personal (DGP) <%= link_to "personal.unam.mx/oficinavirtual", "http://www.personal.unam.mx/oficinavirtual"%>
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- Boton para subir documentos -->
+<div class= "ui vertical stripe segment">
+    <div class="ui center aligned container">
+        <h2 class="ui header">
+        Nos interesan tus propuestas e inquietudes para llevarlas al Consejo Universitario
+        </h2>
+        <%=link_to new_document_path, class:'ui blue labeled icon button' do%>
+            <i class="edit icon"></i>
+            Envianos un mensaje
+        <% end %>
+    </div>
+</div>

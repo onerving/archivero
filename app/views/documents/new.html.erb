@@ -1,12 +1,13 @@
-<div class="ui container">
-    <% if @document.errors.any? %>
-        <div class="ui error message">
-            <ui>
-            <% @document.errors.each do |attr, msg| %>
-                <li><%= msg %></li>
-            <% end %>
-            </ui>
-        </div>
-    <% end %>
-    <%= render partial: 'form' %>
+<div class='ui vertical stripe segment'>
+    <div class="ui container">
+        <h1 class="ui header">Envíanos un mensaje</h1>
+        <% if @document.errors.any? %>
+            <div class="ui error message">
+                <% @document.errors.each do |attr, msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </div>
+        <% end %>
+        <%= render partial: 'form' %>
+    </div>
 </div>

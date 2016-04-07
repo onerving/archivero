@@ -1,6 +1,6 @@
 class DocumentsController < ApplicationController
 
-  before_filter :check_logged_in, :only => [:destroy]
+  before_filter :check_logged_in, :only => [:edit, :index, :show, :destroy]
 
 
   def index
@@ -15,7 +15,7 @@ class DocumentsController < ApplicationController
     @document = Document.new(document_params)
 
     if @document.save
-    redirect_to document_path(@document), notice: "El documento \"#{@document.name}\" ha sido subido" 
+      redirect_to root_path, notice: "El documento \"#{@document.name}\" ha sido subido" 
     else
       render :new
     end
@@ -23,9 +23,6 @@ class DocumentsController < ApplicationController
 
   def show
     @document = Document.find(params[:id])
-    @documents = Document.all
-    @comment = Comment.new
-    @comment.document_id = @document.id
   end
 
   def destroy
@@ -38,12 +35,12 @@ class DocumentsController < ApplicationController
   private
 
   def document_params
-    params.require(:document).permit(:name, :uploader_name, :description, :attachment)
+    params.require(:document).permit(:name, :uploader_name, :email, :description, :attachment)
   end
 
   def check_logged_in
     authenticate_or_request_with_http_basic("Documents") do |username, pw|
-      username == "admin" && pw == "admin"
+      username == "admin" && pw == "comunicacionycompromiso"
     end
   end
 

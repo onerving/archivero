@@ -1,7 +1,11 @@
+<%= link_to documents_path, class:'ui grey attached labeled icon button' do%>
+    <i class="chevron left icon"></i>
+    Regresar a los mensajes
+<% end %>
 <div class="ui vertical stripe segment">
     <div class="ui grid container">
         <!-- Documento actual -->
-        <div class="twelve wide column">
+        <div class="column">
             <div class="ui raised segment">
                 <div class="ui padded segment">
                     <div class="ui equal width grid">
@@ -29,49 +33,21 @@
                     </div>
                 </div>
                 <!-- Vista previa -->
-                <div class="ui fluid card">
-                    <div class="content">
-                        <h3 class="ui header">Vista previa</h3>
+                <% unless @document.attachment.nil? %>
+                    <div class="ui fluid card">
+                        <div class="content">
+                            <h3 class="ui header">Vista previa del adjunto</h3>
+                        </div>
+                        <div class="image">
+                            <img class="ui fluid bordered rounded image" src="<%= @document.attachment.thumb %>">
+                        </div>
                     </div>
-                    <div class="image">
-                        <img class="ui fluid bordered rounded image" src="<%= @document.attachment.thumb %>">
-                    </div>
-                </div>
-                <!-- Seccion de comentarios -->
-                <div class="ui raised segment" id="comments">
-                    <div class="ui comments">
-                        <% if @document.comments.size.zero? %>
-                            <h3 class="ui dividing header">Aún no hay ningún comentario. Añade el tuyo!</h3>
-                        <% else %>
-                            <h3 class="ui dividing header">Comentarios (<%= @document.comments.size %>)</h3>
-                        <% end %>
-                        <%= render partial: "documents/comment", collection: @document.comments %>
-                    </div>
-                </div>
-
-                <div class="ui raised segment">
-                    <div class="ui comments">
-                        <%= render partial: "comments/form" %>
-                    </div>
-                </div>
-                
-
-            </div>
-
-            <!-- Boton para borrar el documento -->
-            <%= link_to document_path(@document), class: "ui mini red labeled icon button", method: :delete do%>
-                <i class="warning icon"></i>
-                Borrar articulo
-            <% end %>
-        </div>
-        <!-- Barra lateral con los demas archivos -->
-        <div class="four wide column">
-            <div class="ui vertical menu">
-                <div class="header item">Otros documentos</div>
-                <% @documents.each do |document| %>
-                    <%= link_to document.name, document_path(document), class:'item'%>
+                <% end %>
+                <!-- Boton para borrar el documento -->
+                <%= link_to document_path(@document), class: "ui mini red labeled icon button", method: :delete do%>
+                    <i class="warning icon"></i>
+                    Borrar articulo
                 <% end %>
             </div>
         </div>
     </div>
-</div>

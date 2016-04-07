@@ -1,57 +1,64 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Archivero</title>
+        <title>Comunicación y compromiso</title>
         <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= javascript_include_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
         <%= csrf_meta_tags %>
     </head>
+
     <body class="pushable">
         <!-- Cuerpo de la aplicacion -->
         <div class="pusher">
 
-            <div class="ui vertical stripe segment">
-                <div class="ui container">
-                    <div class="ui middle aligned grid">
-                        <div class="ten wide column">
-                            <!-- Titulo  -->
-                            <%= link_to  documents_path, class:"ui huge header" do %>
-                                Archivero
-                                <div class="sub header">Comunicación y compromiso</div>
-                            <% end %>
-                            <!-- Boton de la página -->
-                            <% if current_page?(documents_path) or current_page?(root_path) %>
-                                <%=link_to new_document_path, class:'ui blue labeled icon button' do%>
-                                    <i class="cloud upload icon"></i>
-                                    Sube un nuevo archivo
+            <!-- Barra principal -->
+            <% unless current_page? root_path %>
+                <div class="ui vertical inverted blue stripe segment">
+                    <div class="ui middle aligned container">
+                        <div class="ui left aligned grid">
+                            <!-- Cabecera principal -->
+                            <div class="eleven wide left aligned column">
+                                <!-- Titulo  -->
+                                <div class="ui huge inverted header">
+                                    Tus representantes profesores para Consejo Universitario
+                                    <div class="inverted sub header">
+                                        Comunicación y compromiso
+                                    </div>
+                                </div>
+                                <!-- Boton de la página -->
+                                <% if current_page? root_path or current_page? new_document_path or current_page? mensajes_path or current_page? documents_path %>
+                                    <%= link_to root_path, class:'ui grey inverted basic labeled icon button' do%>
+                                        <i class="chevron left icon"></i>
+                                        Regresar
+                                    <% end %>
                                 <% end %>
-                            <% else %>
-                                <%= link_to documents_path, class:'ui grey basic labeled icon button' do%>
-                                    <i class="chevron left icon"></i>
-                                    Regresar
-                                <% end %>
-                            <% end %>
-                        </div>
-                        <div class="six wide column">
-                            <div class="ui left aligned text container">
-                                Zaldivar Zamorategui Orlando<br>
-                                Ponce Serrano Alejandro
+                            </div>
+                            <!-- Columna de nombres -->
+                            <div class="five wide column">
+                                <div class="ui inverted header">
+                                    Zaldivar Zamorategui Orlando<br>
+                                    <div class="sub header">Propietario</div>
+                                </div>
+
+                                <div class="ui inverted header">
+                                    Ponce Serrano Alejandro
+                                    <div class="sub header">Suplente</div>
+                                </div>
                             </div>
                         </div>
-                        <div class="ui hidden divider"></div>
                     </div>
                 </div>
-            </div>
+            <% end %>
 
             <div class="appbody">
                 <%= yield %>
             </div>
 
+            <!-- Pie de página -->
             <div class="ui inverted vertical footer segment">
                 <div class="ui container">
                     <div class="ui section divider"> </div>
                     Hecho en México, todos los derechos reservados 2016. Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, se cite la fuente completa y su dirección electrónica. De otra forma requiere permiso previo por escrito de la institución. Sitio web administrado por: Laboratorio de Multimedia e Internet, UNAM.
-
                 </div>
             </div>
         </div>

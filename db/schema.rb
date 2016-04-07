@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160404024137) do
+ActiveRecord::Schema.define(version: 20160406203009) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "author_name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20160404024137) do
     t.string   "attachment"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "email"
   end
 
 end
