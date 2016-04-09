@@ -5,7 +5,7 @@
 </div>
 <!-- Información de votación -->
 <div class="ui vertical stripe segment">
-    <div class="ui relaxed centered grid">
+    <div class="ui stackable relaxed centered grid">
         <!-- Semblanza Zaldivar -->
         <div class="three wide column">
             <div class="ui center aligned segment">
@@ -36,6 +36,19 @@
                 <% end %>
             </div>
         </div>
+
+        <!-- Propuestas -->
+        <div class="sixteen wide column">
+            <div class="ui center aligned segment">
+                <div class="ui header">Nuestras Propuestas</div>
+                <%= link_to root_path << 'Propuestas.pdf', class: 'ui basic blue labeled icon button' do %>
+                    <i class="file pdf outline icon"></i>
+                    Ver
+                <% end %>
+
+            </div>
+        </div>
+
     </div>
 </div>
 
