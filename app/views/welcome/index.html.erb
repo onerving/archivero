@@ -1,15 +1,40 @@
 <div class="ui vertical stripe segment">
-    <div class='ui very padded  container'>
+    <div class='ui very padded  center aligned container'>
         <%= image_tag 'manta.png', class: 'ui flex image' %>
     </div>
 </div>
 <!-- Información de votación -->
 <div class="ui vertical stripe segment">
-    <div class="ui text container">
-        <div class="ui segment">
-            <p>
-            El voto se podrá ejercer vía Internet en la página <%= link_to 'jornadaelectoral.unam.mx', "http://www.jornadaelectoral.unam.mx "%> Los profesores utilizarán el Número de Identificación Personal (NIP) del Sistema Integral de Administración Escolar (SIAE) <%= link_to "dgae-siae.unam.mx", "http://www.dgae-siae.unam.mx" %> que usan para su función docente, y/o con el cual también entran a la Oficina Virtual de la Dirección General de Personal (DGP) <%= link_to "personal.unam.mx/oficinavirtual", "http://www.personal.unam.mx/oficinavirtual"%>
-            </p>
+    <div class="ui relaxed centered grid">
+        <!-- Semblanza Zaldivar -->
+        <div class="three wide column">
+            <div class="ui center aligned segment">
+                <div class="ui header">Ing. Orlando Zaldivar Zamorategui</div>
+                <%= link_to root_path << 'Orlando.pdf', class: 'ui basic blue labeled icon button' do %>
+                    <i class="file pdf outline icon"></i>
+                    Semblanza
+                <% end %>
+
+            </div>
+        </div>
+        <!-- Información de la votación -->
+        <div class="eight wide column">
+            <div class="ui segment">
+                    <p>
+                    El voto se podrá ejercer vía Internet en la página <%= link_to 'http://www.jornadaelectoral.unam.mx', "http://www.jornadaelectoral.unam.mx "%> Los profesores utilizarán el Número de Identificación Personal (NIP) del Sistema Integral de Administración Escolar (SIAE) <%= link_to "http://www.dgae-siae.unam.mx", "http://www.dgae-siae.unam.mx" %> que usan para su función docente, y/o con el cual también entran a la Oficina Virtual de la Dirección General de Personal (DGP) <%= link_to "http://www.personal.unam.mx/oficinavirtual", "http://www.personal.unam.mx/oficinavirtual"%>
+                </p>
+            </div>
+        </div>
+
+        <!-- Semblanza Ponce  -->
+        <div class="three wide column">
+            <div class="ui center aligned segment">
+                <div class="ui header">Ing. Alejandro Ponce Serrano</div>
+                <%= link_to root_path << 'Ponce.pdf', class: 'ui basic blue labeled icon button' do %>
+                    <i class="file pdf outline icon"></i>
+                    Semblanza
+                <% end %>
+            </div>
         </div>
     </div>
 </div>
@@ -18,7 +43,7 @@
 <div class= "ui vertical stripe segment">
     <div class="ui center aligned container">
         <h2 class="ui header">
-        Nos interesan tus propuestas e inquietudes para llevarlas al Consejo Universitario
+            Nos interesan tus propuestas e inquietudes para llevarlas al Consejo Universitario
         </h2>
         <%=link_to new_document_path, class:'ui blue labeled icon button' do%>
             <i class="edit icon"></i>
